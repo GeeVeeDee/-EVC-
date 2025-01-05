@@ -1,5 +1,5 @@
 import zipfile, glob, subprocess, torch, os, traceback, sys, warnings, shutil, numpy as np
-from mega import Mega
+#from mega import Mega
 os.environ["no_proxy"] = "localhost, 127.0.0.1, ::1"
 import threading
 from time import sleep
@@ -1573,9 +1573,9 @@ def download_from_url(url, model):
     try:
         if "drive.google.com" in url:
             subprocess.run(["gdown", url, "--fuzzy", "-O", zipfile_path])
-        elif "mega.nz" in url:
-            m = Mega()
-            m.download_url(url, './zips')
+#        elif "mega.nz" in url:
+#            m = Mega()
+#            m.download_url(url, './zips')
         else:
             subprocess.run(["wget", url, "-O", zipfile_path])
         for filename in os.listdir("./zips"):
